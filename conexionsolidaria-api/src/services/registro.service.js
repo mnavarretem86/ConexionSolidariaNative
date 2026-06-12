@@ -2,12 +2,10 @@ const { sql, pool } = require('../../config/db');
 const bcrypt = require('bcrypt');
 const emailService = require('./email.service');
 
-// 🔹 PASO 1: ENVIAR OTP
 const solicitarCodigo = async (model) => {
   try {
     const connection = await pool;
 
-    // 🛑 VALIDACIONES
     if (!model) {
       throw new Error('No se enviaron datos');
     }

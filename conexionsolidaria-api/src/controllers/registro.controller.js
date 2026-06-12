@@ -9,11 +9,10 @@ const registro = async (req, res) => {
 
     let response;
 
-    // 🔹 Paso 1: solicitar código
     if (!token) {
       response = await registroService.solicitarCodigo(data);
     } 
-    // 🔹 Paso 2: verificar código
+
     else {
       if (!data.email) {
         return res.status(400).json({
